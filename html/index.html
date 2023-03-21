@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2023年节假日倒数日</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #5b86e5, #36d1dc);
+            font-family: "Open Sans", sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 50px;
+            text-shadow: 2px 2px #000;
+        }
+        table {
+            margin: 50px auto;
+            border-collapse: collapse;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+        th, td {
+            padding: 10px 20px;
+            border: 1px solid #fff;
+            transition: all 0.3s ease-in-out;
+        }
+        th {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        tr:hover td {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .countdown {
+            font-size: 3rem;
+            font-weight: bold;
+            animation: pulse 1s ease-in-out infinite alternate;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+    </style>
+</head>
+<body>
+<h1>2023年节假日倒数日</h1>
+<table>
+    <thead>
+    <tr>
+        <th>节假日</th>
+        <th>日期</th>
+        <th>倒数天数</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>元旦</td>
+        <td>2023年1月1日</td>
+        <td><span id="countdown1" class="countdown"></span></td>
+    </tr>
+    <tr>
+        <td>春节</td>
+        <td>2023年2月10日</td>
+        <td><span id="countdown2" class="countdown"></span></td>
+    </tr>
+    <tr>
+        <td>清明节</td>
+        <td>2023年4月4日</td>
+        <td><span id="countdown3" class="countdown"></span></td>
+    </tr>
+    <tr>
+        <td>劳动节</td>
+        <td>2023年5月1日</td>
+        <td><span id="countdown4" class="countdown"></span></td>
+    </tr>
+    <tr>
+        <td>端午节</td>
+        <td>2023年6月1日</td>
+        <td><span id="countdown5" class="countdown"></span></td>
+    </tr>
+    <tr>
+        <td>中秋节</td>
+        <td>2023年9月22日</td>
+        <td><span id="countdown6" class="countdown"></span></td>
+    </tr>
+    <tr>
+        <td>国庆节</td>
+        <td>2023年10月1日</td>
+        <td><span id="countdown7" class="countdown"></span></td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    function countdown(date, id) {
+        var countDownDate = new Date(date).getTime();
+
+        var x = setInterval(function() {
+
+            var now = new Date().getTime();
+
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+            document.getElementById(id).innerHTML = days + "天";
+
+            if            (distance < 0) {
+                clearInterval(x);
+                document.getElementById(id).innerHTML = "已过期";
+            }
+        }, 1000);
+    }
+
+    countdown("Jan 1, 2023", "countdown1");
+    countdown("Feb 10, 2023", "countdown2");
+    countdown("Apr 4, 2023", "countdown3");
+    countdown("May 1, 2023", "countdown4");
+    countdown("Jun 1, 2023", "countdown5");
+    countdown("Sep 22, 2023", "countdown6");
+    countdown("Oct 1, 2023", "countdown7");
+</script>
+</body>
+</html>
